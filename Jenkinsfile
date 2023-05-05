@@ -2,7 +2,7 @@ node {
     def mvnHome
     stage('install platform'){
         UiPathInstallPlatform (
-            cliNupkgPath: 'C:\\Users\\Vishnu.Kothamasu\\Downloads\\UiPath.CLI.Windows.23.2.8467.25277.zip.nupkg',
+            cliNupkgPath: 'C:\\Users\\Vishnu.Kothamasu\\Downloads\\UiPath.CLI.Windows.22.10.8438.32859.nupkg',
             //cliVersion: 'WIN_22.10.8438.32859',
             //forceInstall: true,
             traceLevel: 'Information')
@@ -10,8 +10,8 @@ node {
 stage('Pack')
 {
     UiPathPack (
-    outputPath: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Jenkins\\Output',
-    projectJsonPath: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Jenkins',
+    outputPath: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Multibranch\\Output',
+    projectJsonPath: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Multibranch',
     traceLevel: 'Information',
     version: AutoVersion())
 }
@@ -23,7 +23,7 @@ stage('Deploy'){
     folderName: 'Shared',
     orchestratorAddress: 'https://uipathorchvk.azurewebsites.net/',
     orchestratorTenant: 'default',
-    packagePath: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Jenkins\\Output',
+    packagePath: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Multibranch\\Output',
     traceLevel: 'Information')
 }
 stage('Execute TestSets'){
