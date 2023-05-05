@@ -1,5 +1,10 @@
 node {
     def mvnHome
+     stage('Check Out')  {
+        steps {
+            git url: 'https://github.com/vishnusai-uipath/UiPath-Jenkins.git', branch: 'main'
+        }
+    }
     stage('install platform'){
         UiPathInstallPlatform (
             cliNupkgPath: 'C:\\Users\\Vishnu.Kothamasu\\Downloads\\UiPath.CLI.Windows.22.10.8438.32859.nupkg',
